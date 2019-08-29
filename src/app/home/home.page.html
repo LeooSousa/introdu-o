@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title color="dark" class="ion-text-center">
+      Introdução
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar animated showCancelButton="never"></ion-searchbar>
+    <p>Bem vindo, {{nome}}!</p>
+  
+  <ion-button [color]="cor" shape="round" expand="full">
+  Cor
+  </ion-button>
+  <ion-button (click)="trocarCor()" color="dark" shape="round" expand="full">
+      Troca cor
+  </ion-button>
+  <ion-icon class="class_icon" [color]="cor" [name]="humor"></ion-icon>
+  <ion-item>
+    <label>Humor</label>
+    <ion-toggle  color="primary" (ionChange)="mudaHumor()" slot="end"> </ion-toggle>
+  </ion-item>
+ 
+
+</ion-content>
