@@ -9,6 +9,7 @@
 <ion-content padding>
     <ion-searchbar animated showCancelButton="never"></ion-searchbar>
     <p>Bem vindo, {{nome}}!</p>
+    <p>Sexo: {{ sexo }}</p>
   
   <ion-button [color]="cor" shape="round" expand="full">
   Cor
@@ -21,6 +22,19 @@
     <label>Humor</label>
     <ion-toggle  color="primary" (ionChange)="mudaHumor()" slot="end"> </ion-toggle>
   </ion-item>
- 
+  <ion-item>
+    <ion-label>Sexo</ion-label>
+    <ion-select placeholder="sexo" (ionChange)="selecionaSexo($event)">
+      <ion-select-option value="feminino">feminino</ion-select-option>
+      <ion-select-option value="masculino">masculino</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="nome" (ionChange)="defineNome($event)"></ion-input>
+  </ion-item>
+
+  <ion-button padding (click)="irParaDetalhes()" color="dark" shape="round" expand="full">
+      ok
+  </ion-button>
 
 </ion-content>

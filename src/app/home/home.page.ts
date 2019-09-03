@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,19 +10,19 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class HomePage {
 
-  nome: string = "Leomar";
+  nome = "";
   cor = "danger";
   cor1 = "success";
   cor2 = "warning";
   cor3 = "primary";
   cor4 = "dark";
-
+  sexo = "";
 
   humor = "sad";
   checked_humor = false;
 
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   trocarCor():void{
     console.log("trocarCor");
@@ -51,6 +52,20 @@ export class HomePage {
     }else {
       this.humor ="sad";
     }
+  }
+
+  selecionaSexo(event): void {
+    console.log(event.detail.value);
+    this.sexo = event.detail.value;
+  }
+
+  defineNome(event): void {
+    console.log(event.detail.value);
+    this.nome = event.detail.value;
+  }
+
+  irParaDetalhes(){
+    this.router.navigate(["/detalhes"]);
   }
 }
 
